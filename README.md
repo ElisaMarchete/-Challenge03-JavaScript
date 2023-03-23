@@ -13,11 +13,11 @@ Creating the random information and functions was the most challenging part of t
 - Installation: No installation is necessary. 
 
 - Usage: 
-1. [Open the website]
-2. [Click on the botton Generate Password]
-3. [Select the number of characters MIN 8 and MAX 128]
-4. [Ansawer the prompt questions]
-5. [Congrats you got a strong password]
+1. Open the website
+2. Click on the botton Generate Password
+3. Select the number of characters MIN 8 and MAX 128
+4. Ansawer the prompt questions
+5. Congrats you got a strong password
 
 - License: MIT
 
