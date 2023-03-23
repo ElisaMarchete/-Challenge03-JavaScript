@@ -2,21 +2,24 @@
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
-function passwordInput(input) {
+function passwordInput() {
+  const leLength = prompt(
+    "Please insert the length of the password - MIN 8 MAX 128 CHARACTERS"
+  );
+  if (leLength < 8) {
+    window.alert("Invalid Enter! Minimum length 8 caracters");
+    return;
+  } else if (leLength > 128) {
+    window.alert("Invalid Enter! Maximum length 128 characters");
+    return;
+  }
+
   const lowercase = confirm("Do you want add lowercase characters?");
   const uppercase = confirm("Do you want add uppercase characters?");
   const numeric = confirm("Do you want add numeric characters?");
   const special = confirm("Do you want add special characters?");
 
-  const leLength = prompt("Please insert the length of the password - MIN 8 MAX 128 CHARACTERS");
-  if (leLength < 8) {
-    window.alert( "Invalid Enter! Minimum length 8 caracters");
-  } else if (leLength > 128) {
-    window.alert(
-      "Invalid Enter! Maximum length 128 characters"
-    );
-  } else {
-    // Find a lowercase random = call function
+  // Find a lowercase random = call function
   const lowercaseResult = findLowercaseRandom(lowercase);
 
   // Find a uppercase random = call function
@@ -36,16 +39,23 @@ function passwordInput(input) {
 
   // Random remaining characters --- inputed lenght minus prompts criteria
   let charac = lenghtParInt - concat.length;
-  var text = "";
-  var char_list = "0123456789";
-  for (var i = 0; i < charac; i++) {
-    text += char_list.charAt(Math.floor(Math.random() * char_list.length));
-  }
+  let text = generateRandomText(charac);
 
   // Concat prompts criteria and random number
   getPassword = `${concat}${text}`;
-  console.log(getPassword);
+
+  // Display password
+  let passwordText = document.querySelector("#password");
+  passwordText.value = getPassword;
+}
+
+function generateRandomText(charac) {
+  let charList = "0123456789";
+  let text = "";
+  for (let i = 0; i < charac; i++) {
+    text += charList.charAt(Math.floor(Math.random() * charList.length));
   }
+  return text;
 }
 
 function findLowercaseRandom(isLowercase) {
