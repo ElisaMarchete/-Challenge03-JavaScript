@@ -30,4 +30,4 @@ The combination of at least 8 characters, uppercase letters, lowercase letters, 
 
 ![Screenshot of deployed application](./assets/screenshot.png)
 
-[Link deployed application](https://elisamarchete.github.io/Challenge03-JavaScript)
+[Link deployed application]()
