@@ -50,7 +50,7 @@ function passwordInput() {
 }
 
 function generateRandomText(charac) {
-  let charList = "0123456789";
+  let charList = "abfghijklmnqrstwxyz";
   let text = "";
   for (let i = 0; i < charac; i++) {
     text += charList.charAt(Math.floor(Math.random() * charList.length));
