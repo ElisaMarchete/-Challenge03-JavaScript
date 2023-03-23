@@ -19,6 +19,12 @@ function passwordInput() {
   const numeric = confirm("Do you want add numeric characters?");
   const special = confirm("Do you want add special characters?");
 
+  // Check if all cases are not false
+  if (lowercase == false && uppercase == false && numeric == false && special == false) {
+    window.alert("Invalid Enter! At least one character type should be selected.");
+    return;
+  }
+
   // Find a lowercase random = call function
   const lowercaseResult = findLowercaseRandom(lowercase);
 
@@ -39,7 +45,7 @@ function passwordInput() {
 
   // Random remaining characters --- inputed lenght minus prompts criteria
   let charac = lenghtParInt - concat.length;
-  let text = generateRandomText(charac);
+  let text = generateRandomText(charac, lowercase, uppercase, numeric, special);
 
   // Concat prompts criteria and random number
   getPassword = `${concat}${text}`;
@@ -49,20 +55,39 @@ function passwordInput() {
   passwordText.value = getPassword;
 }
 
-function generateRandomText(charac) {
-  let charList = "abfghijklmnqrstwxyz";
+// Display character type only if selected - if not selected the specific character will not display
+function generateRandomText(charac, lowercase, uppercase, numeric, special) {
+  
   let text = "";
+  let charList1 = ""
+
+  if (lowercase == true) {
+    charList1 += "abcdefghijklmnopqrstuvwxyz";
+   
+  } else if (uppercase == true) {
+    charList1 += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    
+  } else if (numeric == true) {
+    charList1 += "0123456789";
+      
+  } else if (special == true) {
+    charList1 += "<>@!#$%^&*()_+[]{}?:;|'\"\\,./~`-=";
+   
+  } else {
+    return;
+  }
+
   for (let i = 0; i < charac; i++) {
-    text += charList.charAt(Math.floor(Math.random() * charList.length));
+    text += charList1.charAt(Math.floor(Math.random() * charList1.length));
   }
   return text;
-}
+  }
 
+  // Function to create a random character
 function findLowercaseRandom(isLowercase) {
   if (isLowercase === true) {
     const RandomLowercase = "abcdefghijklmnopqrstuvwxyz";
-    const result =
-      RandomLowercase[Math.floor(Math.random() * RandomLowercase.length)];
+    const result = RandomLowercase[Math.floor(Math.random() * RandomLowercase.length)];
     return result;
   } else {
     return "";
