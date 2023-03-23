@@ -26,4 +26,8 @@ Creating the random information and functions was the most challenging part of t
 The combination of at least 8 characters, uppercase letters, lowercase letters, numbers, and symbols creates a confidentiality, integrity, and authenticity password.
 
 
+### Screenshot and link for the deployed application
 
+![Screenshot of deployed application](./assets/screenshot.png)
+
+[Link deployed application](https://elisamarchete.github.io/Challenge03-JavaScript)
